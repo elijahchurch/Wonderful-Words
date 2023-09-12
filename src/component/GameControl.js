@@ -1,6 +1,7 @@
 import React from "react";
 import GuessForm from "./GuessForm";
 import MessageBox from "./MessageBox";
+import WordDisplay from "./WordDisplay";
 
 
 class GameControl extends React.Component {
@@ -13,12 +14,28 @@ class GameControl extends React.Component {
         };
     }
 
+    startGame = () => {
+        this.setState({gameStart: true})
+    };
+
     render(){
+        let gameDisplay = null;
+        if (this.state.gameStart){
+            gameDisplay = 
+            <div>
+                <WordDisplay/>
+                <GuessForm />
+                <MessageBox />
+                <p>Guesses Left: {this.state.guesses}</p>
+            </div>
+        }
+        else {
+            gameDisplay = <button onClick={this.startGame}>Start Game!</button>
+        }
     return(
-<React.Fragment>
-    <GuessForm />
-    <MessageBox />
-</React.Fragment>
+        <React.Fragment>
+            {gameDisplay}
+        </React.Fragment>
 );
     
     }
