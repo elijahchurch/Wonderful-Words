@@ -10,11 +10,17 @@ class GameControl extends React.Component {
         super(props);
         this.state = {
             gameStart: false,
-            guesses: 6
+            guesses: 6,
+            wordList: [
+                "monkey", "turkey", "bunny", "kitten", "baboon", "penguin"]
         };
     }
 
     startGame = () => {
+        let randomRoll = Math.floor(Math.random() * this.state.wordList.length);
+        console.log(randomRoll);
+        let randomWord = this.state.wordList[randomRoll];
+        console.log(randomWord);
         this.setState({gameStart: true})
     };
 
@@ -22,7 +28,7 @@ class GameControl extends React.Component {
         let gameDisplay = null;
         if (this.state.gameStart){
             gameDisplay = 
-            <div class="container">
+            <div className="container">
                 <WordDisplay/>
                 <GuessForm />
                 <MessageBox />
