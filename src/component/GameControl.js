@@ -1,4 +1,7 @@
 import React from "react";
+import GuessForm from "./GuessForm";
+import MessageBox from "./MessageBox";
+
 
 class GameControl extends React.Component {
 
@@ -11,11 +14,16 @@ class GameControl extends React.Component {
     }
 
     render(){
-        
-        return
+    return(
+<React.Fragment>
+    <GuessForm />
+    <MessageBox />
+</React.Fragment>
+);
+    
     }
 
 
 }
 
-import default GameControl;
+export default GameControl;
