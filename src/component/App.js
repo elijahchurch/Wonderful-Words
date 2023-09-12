@@ -1,8 +1,12 @@
 import Header from "./Header";
+import GameControl from "./GameControl"
 
 function App() {
   return (
-    <Header/>
+    <React.Fragment>
+      <Header/>
+      <GameControl/>
+    </React.Fragment>
   );
 }
 
