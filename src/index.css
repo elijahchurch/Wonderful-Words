@@ -7,7 +7,23 @@ h1 {
   font-family: Verdana;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container{
+  border-style: solid;
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+}
+
+span{
+  border-style: solid;
+  padding: 8px;
+  margin: 5px;
+  background-color: rgb(163, 190, 233);
+}
+
+#guesses{
+  border-style: dashed;
+  width: 50px;
+  padding: 8px;
+  margin-left: auto;
 }

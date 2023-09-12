@@ -22,11 +22,11 @@ class GameControl extends React.Component {
         let gameDisplay = null;
         if (this.state.gameStart){
             gameDisplay = 
-            <div>
+            <div class="container">
                 <WordDisplay/>
                 <GuessForm />
                 <MessageBox />
-                <p>Guesses Left: {this.state.guesses}</p>
+                <p id="guesses">Guesses Left: {this.state.guesses}</p>
             </div>
         }
         else {
