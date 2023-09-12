@@ -1,19 +1,22 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-function WordDisplay() {
+function WordDisplay(props) {
 
     return (
         
-            <div>
-                <h2>
-                    <span>W</span>
-                    <span>O</span>
-                    <span>R</span>
-                    <span>D</span>
-                </h2>
-            </div>
-
+    <div>
+    <h2>
+    {props.displayedWord.map((element,index) => (
+        <span key={index}>{element}</span>
+        ))}
+    </h2>
+    </div>     
     )
+}
+
+WordDisplay.propTypes = {
+    displayedWord: PropTypes.array
 }
 
 export default WordDisplay;
