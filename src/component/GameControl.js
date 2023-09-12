@@ -12,7 +12,7 @@ class GameControl extends React.Component {
             gameStart: false,
             guesses: 6,
             wordList: [
-                "monkey", "turkey", "bunny", "kitten", "baboon", "penguin"]
+                "monkey", "turkey", "bunny", "kitten", "baboon", "penguin", "pneumonoultramicroscopicsilicovolcanoconiosis"]
         };
     }
 
