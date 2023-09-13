@@ -4,6 +4,8 @@ import MessageBox from "./MessageBox";
 import WordDisplay from "./WordDisplay";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import GameOver from "./GameOver";
+import Winner from "./Winner";
 
 
 class GameControl extends React.Component {
@@ -15,7 +17,8 @@ class GameControl extends React.Component {
             message: "Welcome to Wonderful Words! Enter a letter to see if it is in the MyStErIoUs Wonderful Word. If it isn't in the word, you lose a guess, and if you have no guesses left, you lose the game!",
             guesses: 6,
             wordList: [
-                "MONKEY", "TURKEY", "BUNNY", "KITTEN", "BABOON", "PENGUIN"]
+                "MONKEY", "TURKEY", "BUNNY", "KITTEN", "BABOON", "PENGUIN"],
+            gameWon: true
         };
     }
 
@@ -52,13 +55,26 @@ class GameControl extends React.Component {
         this.props.dispatch(action);  
         this.setState({message: `Nice job! The letter ${upperLetter} showed up in the word!`})
     } else {
-        this.setState({guesses: this.state.guesses - 1});           this.setState({message: `The letter ${upperLetter} wasn't in the word, you turkey!!`});
+        this.setState({guesses: this.state.guesses - 1}); 
+        this.setState({message: `The letter ${upperLetter} wasn't in the word, you turkey!!`});
     }
     }
 
     render(){
         let gameDisplay = null;
-        if (this.state.gameStart){
+        if(this.state.guesses === 0) {
+            gameDisplay =
+            <div className="container">
+                <GameOver/>
+            </div>
+        }
+        else if (!this.props.displayedWord.includes(" ") && this.props.displayedWord.length > 0) {
+            gameDisplay = 
+            <div className="container">
+                <Winner/>
+            </div>
+        }        
+        else if (this.state.gameStart){
             gameDisplay = 
             <div className="container">
                 <WordDisplay displayedWord={this.props.displayedWord}/>
