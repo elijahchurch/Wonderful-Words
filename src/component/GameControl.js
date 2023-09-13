@@ -14,7 +14,7 @@ class GameControl extends React.Component {
             gameStart: false,
             guesses: 6,
             wordList: [
-                "MONKEY", "TURKEY", "BUNNY", "KITTEN", "BABOON", "PENGUIN"]
+                "MONKEY*RAN*AWAY", "TURKEY*JUMPS", "BUNNY*SWIMS", "KITTEN*GRUMBLES", "BABOON*SMILES", "PENGUIN*SLIDES"]
         };
     }
 
@@ -32,7 +32,7 @@ class GameControl extends React.Component {
         dispatch(action1);
         const action2 = {
             type: "BLANK_ARRAY",
-            length: randomWord.length
+            phrase: randomWord
         }
         dispatch(action2);
         this.setState({gameStart: true})

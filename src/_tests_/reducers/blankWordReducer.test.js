@@ -7,8 +7,8 @@ import blankWordReducer
     test("Should return a blank array based on the length entered", () => {
         action = {
             type: "BLANK_ARRAY",
-            length: 5
+            phrase: "small*phrase"
         }
-        expect(blankWordReducer([], action)).toEqual([" ", " ", " ", " ", " "]) 
+        expect(blankWordReducer([], action)).toEqual([" ", " ", " ", " ", " ", "*", " ", " ", " ", " ", " ", " "]) 
     });
  })

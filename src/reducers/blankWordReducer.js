@@ -1,8 +1,10 @@
 const blankWordReducer = (state = [], action) => {
-    const { length } = action;
+    const { phrase } = action;
     switch(action.type) {
         case "BLANK_ARRAY":
-        let blankArray = Array.from(" ".repeat(length));
+        const editedPhrase = phrase.replace(/\w/g, " ")
+        let blankArray = Array.from(editedPhrase);
+        
         return blankArray;
         default:
             return state;
