@@ -6,7 +6,7 @@ function WordDisplay(props) {
     return (
         
     <div>
-    <h2>
+    <h2 id="wordContainer">
     {props.displayedWord.map((element,index) => (
         <span key={index}>{element}</span>
         ))}

@@ -1,12 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function MessageBox(){
+function MessageBox(props){
 
     return (
         <React.Fragment>
-            <h3>hello.</h3>
+            <h3>{props.message}</h3>
         </React.Fragment>
     )
+}
+
+MessageBox.propTypes = {
+    message: PropTypes.string
 }
 
 export default MessageBox; 

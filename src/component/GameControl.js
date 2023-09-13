@@ -12,6 +12,7 @@ class GameControl extends React.Component {
         super(props);
         this.state = {
             gameStart: false,
+            message: "Welcome to Wonderful Words! Enter a letter to see if it is in the MyStErIoUs Wonderful Word. If it isn't in the word, you lose a guess, and if you have no guesses left, you lose the game!",
             guesses: 6,
             wordList: [
                 "MONKEY", "TURKEY", "BUNNY", "KITTEN", "BABOON", "PENGUIN"]
@@ -40,6 +41,7 @@ class GameControl extends React.Component {
 
     handleLetterFromForm = (letter) => {
         const upperLetter = letter.toUpperCase();
+        if(this.props.wordToGuess.includes(upperLetter)) {
         const editArray = this.props.wordToGuess.map((element, index) => (element === upperLetter ? index : -1));
         const indexArray = editArray.filter(element => element !== -1);
         const action = {
@@ -47,7 +49,11 @@ class GameControl extends React.Component {
             letter: upperLetter,
             indexPosition: indexArray
         }
-        this.props.dispatch(action);        
+        this.props.dispatch(action);  
+        this.setState({message: `Nice job! The letter ${upperLetter} showed up in the word!`})
+    } else {
+        this.setState({guesses: this.state.guesses - 1});           this.setState({message: `The letter ${upperLetter} wasn't in the word, you turkey!!`});
+    }
     }
 
     render(){
@@ -57,7 +63,7 @@ class GameControl extends React.Component {
             <div className="container">
                 <WordDisplay displayedWord={this.props.displayedWord}/>
                 <GuessForm onSubmission={this.handleLetterFromForm}/>
-                <MessageBox />
+                <MessageBox message={this.state.message}/>
                 <p id="guesses">Guesses Left: {this.state.guesses}</p>
             </div>
         }
