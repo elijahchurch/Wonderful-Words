@@ -38,6 +38,16 @@ class GameControl extends React.Component {
         this.setState({gameStart: true})
     };
 
+    handleLetterFromForm(letter) {
+        const indexArray = this.props.wordToGuess.map((element, index) => (element === letter ? index: -1)).filter(element => element !== -1);
+        const action = {
+            type: "ADD_LETTER",
+            letter: letter,
+            indexPosition: indexArray
+        }
+        
+    }
+
     render(){
         let gameDisplay = null;
         if (this.state.gameStart){

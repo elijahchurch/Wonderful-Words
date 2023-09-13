@@ -1,9 +1,14 @@
 import React from 'react';
 
 function GuessForm() {
+
+    function handleLetterGuess(event){
+        event.preventDefault();
+        console.log(event.target.letterGuess.value)
+    }
     return(
         <React.Fragment>
-<form>
+<form onSubmit={handleLetterGuess}>
 <input
 type='text' pattern='[A-Za-z]{1}'
 name='letterGuess'
