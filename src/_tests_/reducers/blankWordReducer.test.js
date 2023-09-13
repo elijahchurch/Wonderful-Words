@@ -18,8 +18,18 @@ import blankWordReducer
         action = {
             type: "ADD_LETTER",
             letter: "a",
-            indexPosition: 1
+            indexPosition: [1]
         }
         expect(blankWordReducer(state, action)).toEqual([" ", "a", " "])
     });
+
+    test("Should return array correctly if letter exists in multiple index positions", () => {
+        action = {
+            type: "ADD_LETTER",
+            letter: "o",
+            indexPosition: [1,2]
+        }
+        expect(blankWordReducer(state, action)).toEqual([" ", "o", "o"])
+    });
+
  })

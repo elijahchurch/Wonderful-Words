@@ -38,14 +38,16 @@ class GameControl extends React.Component {
         this.setState({gameStart: true})
     };
 
-    handleLetterFromForm(letter) {
-        const indexArray = this.props.wordToGuess.map((element, index) => (element === letter ? index: -1)).filter(element => element !== -1);
+    handleLetterFromForm = (letter) => {
+        const upperLetter = letter.toUpperCase();
+        const editArray = this.props.wordToGuess.map((element, index) => (element === upperLetter ? index : -1));
+        const indexArray = editArray.filter(element => element !== -1);
         const action = {
             type: "ADD_LETTER",
-            letter: letter,
+            letter: upperLetter,
             indexPosition: indexArray
         }
-        
+        this.props.dispatch(action);        
     }
 
     render(){
@@ -54,7 +56,7 @@ class GameControl extends React.Component {
             gameDisplay = 
             <div className="container">
                 <WordDisplay displayedWord={this.props.displayedWord}/>
-                <GuessForm />
+                <GuessForm onSubmission={this.handleLetterFromForm}/>
                 <MessageBox />
                 <p id="guesses">Guesses Left: {this.state.guesses}</p>
             </div>
@@ -86,4 +88,6 @@ GameControl.propTypes = {
 }
 
 GameControl = connect(mapStateToProps)(GameControl);
+
+
 export default GameControl;

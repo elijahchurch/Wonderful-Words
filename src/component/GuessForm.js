@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from "prop-types"
 
-function GuessForm() {
+function GuessForm(props) {
 
     function handleLetterGuess(event){
         event.preventDefault();
-        console.log(event.target.letterGuess.value)
+        props.onSubmission(event.target.letterGuess.value)
     }
+    
     return(
         <React.Fragment>
 <form onSubmit={handleLetterGuess}>
@@ -18,6 +20,10 @@ placeholder='Guess a letter!'/>
 </form>
 </React.Fragment>
     );
+}
+
+GuessForm.propTypes = {
+    onSubmission: PropTypes.func
 }
 
 export default GuessForm;

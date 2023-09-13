@@ -6,13 +6,13 @@ const blankWordReducer = (state = [], action) => {
         return blankArray;
         case "ADD_LETTER":
             const newState = state.map((element, index) => {
-                if(index === action.indexPosition) {
-                    return action.letter;
+                if(indexPosition.includes(index)) {
+                    return letter;
                 }
                 else {
                     return element;
                 }
-            })
+            });
             return newState;
         default:
             return state;
