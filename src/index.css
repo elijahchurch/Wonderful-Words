@@ -35,3 +35,7 @@ span{
 #wordContainer {
   display: inline-flex;
 }
+
+.gameButton {
+  margin-top: 50px;
+}
