@@ -8,6 +8,8 @@ import GameOver from "./GameOver";
 import Winner from "./Winner";
 
 
+
+
 class GameControl extends React.Component {
 
     constructor(props) {
@@ -53,7 +55,7 @@ class GameControl extends React.Component {
             indexPosition: indexArray
         }
         this.props.dispatch(action);  
-        this.setState({message: `Nice job! The letter ${upperLetter} showed up in the word!`})
+        this.setState({message: `Nice job! The letter ${upperLetter} showed up in the word!`});
     } else {
         this.setState({guesses: this.state.guesses - 1}); 
         this.setState({message: `The letter ${upperLetter} wasn't in the word, you turkey!!`});

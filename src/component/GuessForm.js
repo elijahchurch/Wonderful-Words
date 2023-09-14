@@ -5,7 +5,8 @@ function GuessForm(props) {
 
     function handleLetterGuess(event){
         event.preventDefault();
-        props.onSubmission(event.target.letterGuess.value)
+        props.onSubmission(event.target.letterGuess.value);
+        event.target.letterGuess.value = "";
     }
     
     return(
