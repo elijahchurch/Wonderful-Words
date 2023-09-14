@@ -19,7 +19,7 @@ class GameControl extends React.Component {
             message: null,
             guesses: null,
             wordList: [
-                "MONKEY", "TURKEY", "BUNNY", "KITTEN", "BABOON", "PENGUIN"],
+                "INCONGRUENT", "HYMN", "AUDACIOUS", "SILHOUETTE", "ANEMONE", "SQUIRREL", "VACUUM", "DEPRECATE", "SOLILOQUY", "GYRO", "NAUSEOUS", "NEIGHBOR", "TANTAMOUNT", "TROUBADOUR", "INTRINSIC", "PENGUIN"],
             lettersGuessed: null
         };
     }
@@ -77,14 +77,14 @@ class GameControl extends React.Component {
         if(this.state.guesses === 0) {
             gameButton = <button className="gameButton" onClick={this.startGame}>New Game</button>
             gameDisplay =
-            <div className="container">
+            <div className="container small">
                 <GameOver chosenWord={this.props.wordToGuess}/>
             </div>
         }
         else if (!this.props.displayedWord.includes(" ") && this.props.displayedWord.length > 0) {
             gameButton = <button className="gameButton" onClick={this.startGame}>New Game</button>
             gameDisplay = 
-            <div className="container">
+            <div className="container small">
                 <Winner chosenWord={this.props.wordToGuess}/>
             </div>
         }        
